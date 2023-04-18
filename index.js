@@ -20,7 +20,6 @@ app.get('/webhook', (req, res) => {
       const responseBody = {
         response_token: responseToken
       };
-      console.log(responseBody);
       res.status(200).send(responseBody);
     } else {
       res.status(500).send({error: 'error'});
@@ -33,6 +32,7 @@ app.get('/hello', (req,res)=>{
 
 app.post('/webhook', (req,res)=>{
     console.log('hello');
+    console.log(req.body);
 });
 
 app.listen(PORT, ()=>{
