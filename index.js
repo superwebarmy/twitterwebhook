@@ -14,12 +14,14 @@ function generateCRCResponse(crcToken, consumerSecret) {
 
 app.get('/webhook', (req, res) => {
     const crcToken = req.query.crc_token;
+    console.log(crcToken);
     if (crcToken) {
       const consumerSecret = 'PCkvNYnYdWN6ewUFjV4nycRye1KzJfB5U08BmWKoNyu90VrHLr';
       const responseToken = generateCRCResponse(crcToken, consumerSecret);
       const responseBody = {
         response_token: responseToken
       };
+        console.log(responseBody);
       res.status(200).send(responseBody);
     } else {
       res.status(500).send({error: 'error'});
@@ -31,7 +33,6 @@ app.get('/hello', (req,res)=>{
 });
 
 app.post('/webhook', (req,res)=>{
-    console.log('hello');
     console.log(req.body);
 });
 
