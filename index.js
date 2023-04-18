@@ -31,6 +31,7 @@ app.get('/hello', (req,res)=>{
 });
 
 app.post('/webhook', (req,res)=>{
+    console.log('hello');
     console.log(req.body);
 });
 
